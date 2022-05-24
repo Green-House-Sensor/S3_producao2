@@ -58,6 +58,15 @@ CREATE TABLE dado(
     FOREIGN KEY(fkSensor) REFERENCES sensor(idSensor)
 );
 
+-- CREATE TABLE dado(
+-- 	idDado INT PRIMARY KEY IDENTITY(1,1),
+-- 	dht11Umidade DECIMAL,
+--     lm35_temperatura DECIMAL,
+-- 	luminosidade DECIMAL,
+-- 	momento DATETIME DEFAULT CURRENT_TIMESTAMP,
+-- 	fkSensor INT FOREIGN KEY REFERENCES Sensor(idSensor)
+-- );
+
 select dht11Umidade, lm35Temperatura, luminosidade FROM dado
 JOIN sensor ON fkSensor = idSensor 
 JOIN estufa ON fkEstufa = idEstufa where fkSensor = 1
@@ -148,13 +157,5 @@ DESC dado;
 --     localizacao VARCHAR(45)
 -- );
 
--- CREATE TABLE dado(
--- 	idDado INT IDENTITY(1,1),
---     fkSensor INT,
---     PRIMARY KEY(idDado, fkSensor),
---     dht11Umidade DECIMAL,
---     lm35Temperatura DECIMAL,
---     luminosidade DECIMAL,
---     FOREIGN KEY(fkSensor) REFERENCES sensor(idSensor)
--- );
+
 
